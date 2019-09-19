@@ -5,23 +5,16 @@ pipeline {
     label 'nodejs'
   }
 ​
-  options {
-    timestamps()
-    timeout(time: 2, unit: 'HOURS')
-  }
-​
   stages {
     stage('Prepare') {
       steps {
         script {
-          sh "echo 'INITIALIZE PIPELINE'"
+          sh 'echo "INITIALIZE PIPELINE"'
         }
 ​
         dir('comet') {
-          sh '''
-              echo "Comet Dependencies"
-              npm install
-          '''
+          sh 'echo "Comet Dependencies"'
+          sh 'npm install'
         }
       }
     }
@@ -42,9 +35,7 @@ pipeline {
 ​​
     stage('Validate') {
       steps {
-        sh """
-          echo '==> Validate AWS templates'
-        """
+        sh 'echo "==> Validate AWS templates"'
       }
     }
   }

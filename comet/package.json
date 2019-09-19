@@ -1,0 +1,12 @@
+{
+  "name": "comet",
+  "version": "1.0.0",
+  "description": "comet",
+  "repository": {
+    "type": ""
+  },
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "3.4.1"
+  }
+}

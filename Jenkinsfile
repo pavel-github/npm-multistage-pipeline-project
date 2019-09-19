@@ -17,6 +17,11 @@ pipeline {
           sh 'echo "Comet Dependencies"'
           sh 'npm install'
         }
+
+        dir('lambda') {
+          sh 'echo "Lambda Dependencies"'
+          sh 'npm install'
+        }
       }
     }
 
@@ -25,6 +30,20 @@ pipeline {
         dir('comet') {
           sh 'echo "==> Snyk Comet"'
           snykSecurity projectName: 'comet',
+            snykInstallation: 'snyk@latest',
+            snykTokenId: 'snyk-mxu-token',
+            targetFile: 'package.json'
+
+          sh 'echo "==> SonarQube Tests"'
+        }
+      }
+    }
+
+    stage('Check Lambda') {
+      steps {
+        dir('lambda') {
+          sh 'echo "==> Snyk Lambda"'
+          snykSecurity projectName: 'lambda',
             snykInstallation: 'snyk@latest',
             snykTokenId: 'snyk-mxu-token',
             targetFile: 'package.json'

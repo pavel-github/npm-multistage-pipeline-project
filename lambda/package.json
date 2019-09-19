@@ -1,0 +1,12 @@
+{
+  "name": "lambda",
+  "version": "1.0.0",
+  "description": "lambda",
+  "repository": {
+    "type": ""
+  },
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "3.3.1"
+  }
+}

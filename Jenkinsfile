@@ -6,12 +6,6 @@ pipeline {
   }
 
   stages {
-    stage('Checkout') {
-      steps {
-        deleteDir()
-        git 'https://github.com/pavel-github/npm-multistage-pipeline-project'
-      }
-    }
 
     stage('Prepare') {
       steps {
